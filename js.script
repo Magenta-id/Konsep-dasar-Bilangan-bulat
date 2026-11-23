@@ -1,0 +1,46 @@
+// Nonaktifkan pemulihan posisi scroll otomatis browser
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+if (window.location.hash) {
+  history.replaceState(null, null, window.location.pathname + window.location.search);
+}
+
+window.scrollTo(0, 0);
+
+/* Format Button */
+document.addEventListener("DOMContentLoaded", function () {
+
+    const backToTop = document.getElementById("backToTop");
+
+    if (!backToTop) return;
+
+    // Tampilkan tombol setelah scroll 300px
+    function toggleBackToTop() {
+        if (window.scrollY > 300) {
+            backToTop.classList.add("show");
+        } else {
+            backToTop.classList.remove("show");
+        }
+    }
+
+    // Pantau posisi scroll
+    window.addEventListener(
+        "scroll",
+        toggleBackToTop,
+        { passive: true }
+    );
+
+    // Kembali ke bagian atas
+    backToTop.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+    // Periksa posisi awal halaman
+    toggleBackToTop();
+
+});
