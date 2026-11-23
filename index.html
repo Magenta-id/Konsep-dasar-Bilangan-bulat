@@ -1137,6 +1137,140 @@
       <p>
         Setelah mempelajari pengertian, garis bilangan, hingga cara menyelesaikan operasi hitung campuran, sekarang saatnya menguji sejauh mana pemahamanmu. Kerjakan kuis singkat di bawah ini dengan santai dan teliti untuk memastikan konsep bilangan bulat sudah benar-benar menempel di ingatan. Jangan takut salah—kalau masih ada yang keliru, kamu bisa menengok kembali penjelasan di atas!
       </p>
+
+      <div class="app-container">
+  <header class="app-header">
+    <div class="header-badge">Matematika SMP &amp; SMA</div>
+    <h2 class="quiz-title">Latihan Operasi Bilangan Bulat</h2>
+    <p>
+      Asah ketelitian berhitung bilangan positif, negatif, nol, serta operasi campuran
+      dengan pembahasan langkah demi langkah.
+    </p>
+  </header>
+
+  <div class="main-content">
+    <!-- Panel Pengaturan Kuis -->
+    <section class="settings-panel" aria-label="Pengaturan Kuis">
+      <!-- Dropdown 1: Level Kesulitan -->
+      <div class="control-group">
+        <label id="level-label" for="level-trigger">Level Kesulitan</label>
+        <div class="custom-dropdown" data-target="level-select">
+          <button
+            type="button"
+            id="level-trigger"
+            class="dropdown-trigger"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-labelledby="level-label level-trigger"
+          >
+            <span class="dropdown-selected-text">Level 1 — Dasar (Penjumlahan &amp; Pengurangan)</span>
+            <span class="dropdown-arrow" aria-hidden="true">&#9662;</span>
+          </button>
+          <ul class="dropdown-menu hidden" role="listbox" aria-labelledby="level-label">
+            <li class="dropdown-option is-selected" role="option" aria-selected="true" data-value="1">
+              Level 1 — Dasar (Penjumlahan &amp; Pengurangan)
+            </li>
+            <li class="dropdown-option" role="option" aria-selected="false" data-value="2">
+              Level 2 — Menengah (4 Operasi &amp; Prioritas)
+            </li>
+            <li class="dropdown-option" role="option" aria-selected="false" data-value="3">
+              Level 3 — Lanjutan (Campuran &amp; Tanda Kurung)
+            </li>
+          </ul>
+          <select id="level-select" name="level" class="hidden" tabindex="-1" aria-hidden="true">
+            <option value="1" selected>Level 1 — Dasar (Penjumlahan &amp; Pengurangan)</option>
+            <option value="2">Level 2 — Menengah (4 Operasi &amp; Prioritas)</option>
+            <option value="3">Level 3 — Lanjutan (Campuran &amp; Tanda Kurung)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Dropdown 2: Jenis Soal -->
+      <div class="control-group">
+        <label id="type-label" for="type-trigger">Jenis Soal</label>
+        <div class="custom-dropdown" data-target="type-select">
+          <button
+            type="button"
+            id="type-trigger"
+            class="dropdown-trigger"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-labelledby="type-label type-trigger"
+          >
+            <span class="dropdown-selected-text">Campuran (Polos &amp; Cerita)</span>
+            <span class="dropdown-arrow" aria-hidden="true">&#9662;</span>
+          </button>
+          <ul class="dropdown-menu hidden" role="listbox" aria-labelledby="type-label">
+            <li class="dropdown-option is-selected" role="option" aria-selected="true" data-value="mixed">
+              Campuran (Polos &amp; Cerita)
+            </li>
+            <li class="dropdown-option" role="option" aria-selected="false" data-value="direct">
+              Soal Polos (Ekspresi Langsung)
+            </li>
+            <li class="dropdown-option" role="option" aria-selected="false" data-value="story">
+              Soal Cerita (Kontekstual)
+            </li>
+          </ul>
+          <select id="type-select" name="questionType" class="hidden" tabindex="-1" aria-hidden="true">
+            <option value="mixed" selected>Campuran (Polos &amp; Cerita)</option>
+            <option value="direct">Soal Polos (Ekspresi Langsung)</option>
+            <option value="story">Soal Cerita (Kontekstual)</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Kartu Soal -->
+    <article class="question-card" aria-live="polite">
+      <div class="question-meta">
+        <span id="badge-level" class="meta-tag tag-level">Level 1 — Dasar</span>
+        <span id="badge-type" class="meta-tag tag-type">Soal Polos</span>
+      </div>
+
+      <div id="question-display" class="question-body">
+        Memuat soal...
+      </div>
+
+      <!-- Area Input Jawaban -->
+      <form id="answer-form" class="answer-form" novalidate>
+        <label for="answer-input" class="sr-only">Masukkan jawaban bilangan bulat</label>
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="answer-input"
+            inputmode="numeric"
+            autocomplete="off"
+            placeholder="Ketik jawabanmu (contoh: -12 atau 25)"
+            aria-describedby="input-hint"
+          />
+          <button type="submit" id="check-btn" class="btn btn-primary">
+            Periksa Jawaban
+          </button>
+        </div>
+        <small id="input-hint" class="input-hint">
+          Gunakan tanda minus (-) untuk bilangan negatif tanpa spasi.
+        </small>
+      </form>
+
+      <!-- Area Feedback -->
+      <div id="feedback-box" class="feedback-box hidden" role="alert"></div>
+
+      <!-- Panel Pembahasan -->
+      <section id="explanation-panel" class="explanation-panel hidden" aria-label="Pembahasan Soal">
+        <h3 class="explanation-title">Pembahasan Langkah demi Langkah</h3>
+        <div id="explanation-content" class="explanation-content"></div>
+      </section>
+
+      <!-- Tombol Navigasi Soal -->
+      <div class="card-actions">
+        <button type="button" id="next-btn" class="btn btn-secondary">
+          Soal Berikutnya &rarr;
+        </button>
+      </div>
+    </article>
+  </div>
+</div>
     </section>
 
     <section id="faq-bilangan-bulat">
