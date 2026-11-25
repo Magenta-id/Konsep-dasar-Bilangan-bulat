@@ -1058,8 +1058,11 @@ function handleNextQuestion(elements, shouldFocus = true) {
   const newQuestion = generateQuestion(appState.level, appState.questionType);
   appState.currentQuestion = newQuestion;
   renderQuestion(elements, newQuestion);
-  elements.answerInput.focus();
+  if (shouldFocus && elements.answerInput) {
+    elements.answerInput.focus({ preventScroll: true });
+  }
 }
+
 
 function handleLevelChange(elements) {
   appState.level = Number(elements.levelSelect.value);
