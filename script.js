@@ -1053,7 +1053,7 @@ function resetQuestionUI(elements) {
    10. EVENT HANDLERS & INISIALISASI UTAMA
    ========================================================================== */
 
-function handleNextQuestion(elements) {
+function handleNextQuestion(elements, shouldFocus = true) {
   resetQuestionUI(elements);
   const newQuestion = generateQuestion(appState.level, appState.questionType);
   appState.currentQuestion = newQuestion;
@@ -1195,7 +1195,7 @@ function initializeQuiz() {
     handleNextQuestion(elements)
   );
 
-  handleNextQuestion(elements);
+  handleNextQuestion(elements, false);
 }
 
 initializeQuiz();
