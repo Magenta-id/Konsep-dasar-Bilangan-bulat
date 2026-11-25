@@ -33,6 +33,7 @@
   padding: 1.5rem 1rem 2rem;
   color: var(--color-text);
   line-height: 1.6;
+  overflow-x: clip;
 }
 
 .app-container,
@@ -114,6 +115,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .app-container .control-group label {
@@ -126,10 +129,15 @@
 .app-container .custom-dropdown {
   position: relative;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .app-container .dropdown-trigger {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
